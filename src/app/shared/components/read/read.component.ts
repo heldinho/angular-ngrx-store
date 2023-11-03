@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Tutorial } from '../../store/models/tutorial.model';
 import { AppState } from '../../store/app.state';
+import * as TutorialActions from '../../store/actions/tutorial.action';
 
 @Component({
   selector: 'app-read',
@@ -17,4 +18,8 @@ export class ReadComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  delTutorial(index: number) {
+    this.store.dispatch(new TutorialActions.RemoveTutorial(index));
+  }
 }
