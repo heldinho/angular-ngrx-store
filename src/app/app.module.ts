@@ -5,21 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ButtonComponent } from './shared/components/button/button.component';
 import { StoreModule } from '@ngrx/store';
-import { cartReducer } from './shared/store/reducers/cart.reducer';
-import { tutorialReducer } from './shared/store/reducers/tutorial.reducer';
 import { ReadComponent } from './shared/components/tutorial/read/read.component';
 import { CreateComponent } from './shared/components/tutorial/create/create.component';
+import { rootReducer } from './shared/store/reducers';
 
 @NgModule({
   declarations: [AppComponent, ButtonComponent, ReadComponent, CreateComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    StoreModule.forRoot({
-      // cart: cartReducer,
-      tutorial: tutorialReducer,
-    }),
-  ],
+  imports: [BrowserModule, AppRoutingModule, StoreModule.forRoot(rootReducer)],
   providers: [],
   bootstrap: [AppComponent],
 })
